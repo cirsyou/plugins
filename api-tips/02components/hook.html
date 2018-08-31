@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
-  
+  <div id="app"></div>
+  <script src="../react.js"></script>
+  <script src="../react-dom.js"></script>
+  <script>
+    // 创建一个组件
+    var TextAreaHook = React.createClass({
+      _log: function (methodName, args) {
+        console.log(methodName, args)
+      },
+      // 生命周期
+      componentWillUpdate:function(){
+        this._log('componentWillUpdate',arguments);
+      },
+      componentDidUpdate:function(){
+        this._log('componentDidUpdate',arguments);
+      },
+      componentWillMount:function(){
+        this._log('componentWillMount',arguments);
+      },
+      componentDidMount:function(){
+        this._log('componentDidMount',arguments);
+      },
+      componentWillUnmount:function(){
+        this._log('componentWillUnmount',arguments);
+      },
+      render:function(){
+        return React.DOM.div(null,'Hello Cris!')
+      }
+    });
+    ReactDOM.render(
+      React.createElement(TextAreaHook),
+      document.getElementById('app')
+    )
+  </script>
+
 </body>
+
 </html>
