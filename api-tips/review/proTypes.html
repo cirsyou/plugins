@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>proTypes</title>
 </head>
 
 <body>
@@ -14,12 +14,17 @@
   <script src="../react-dom.js"></script>
   <script>
     var Component = React.createClass({
+      propTypes: {
+        name: React.PropTypes.string.isRequired,
+      },
       render: function () {
-        return React.createElement('span', null, 'Hello world!'+this.props.name)
+        return React.DOM.div(null, 'my name is ' + this.props.name);
       }
-    })
+    });
     ReactDOM.render(
-      React.createElement(Component,{name:'Cris'}),
+      React.createElement(Component, {
+        name: 'Cris'
+      }),
       document.getElementById('app')
     )
   </script>
