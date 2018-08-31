@@ -13,6 +13,32 @@
   <script src="../react.js"></script>
   <script src="../react-dom.js"></script>
   <script>
+    var myApp = React.createClass({
+      propTypes:{
+        name: React.PropTypes.string.isRequired
+      },
+      render:function(){
+        return React.DOM.div(
+          {
+            className: 'my-class',
+            id:'myid',
+            style:{
+              color:'blue',
+              fontSize:'22px'
+            }
+          },
+          "my name is "+this.props.name
+        )
+      }
+    })
+    ReactDOM.render(
+      React.createElement(myApp,{
+        name:'Cris'
+      }),
+      document.getElementById('app')
+    )
+  </script>
+  <!-- <script>
     var myComponent = React.createClass({
       propTypes: {
         name: React.PropTypes.string.isRequired
@@ -35,7 +61,7 @@
       }),
       document.getElementById('app')
     )
-  </script>
+  </script> -->
   <!--
   <script>
     var Component = React.createClass({
