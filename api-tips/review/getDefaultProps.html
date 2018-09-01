@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>设置默认属性</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="../react.js"></script>
+  <script src="../react-dom.js"></script>
+  <script>
+    // 生成组件
+    var Component = React.createClass({
+      propTypes: {
+        name: React.PropTypes.string.isRequired
+      },
+      // 设置默认值
+      getDefaultProps:function(){
+        return {
+          name: 'default'
+        }
+      },
+      render: function () {
+        return React.DOM.div(null, "my name is " + this.props.name)
+      }
+    })
+    // 加载
+    ReactDOM.render(
+      React.createElement(Component, {
+        name: 'Cris'
+      }),
+      document.getElementById('app')
+    )
+  </script>
+
+</body>
+
+</html>
