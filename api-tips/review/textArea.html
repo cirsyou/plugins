@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="../react.js"></script>
+  <script src="../react-dom.js"></script>
+  <script>
+    // 创建组件
+    var TextAreaCounter = React.createClass({
+      // 设置需接收的参数类型
+      propTypes: {
+        text: React.PropTypes.string.isRequired
+      },
+      // 设置默认值
+      getDefaultProps: function () {
+        return {
+          text: 'default'
+        }
+      },
+      // 具体组件 - defaultValue 标签的value属性
+      render: function () {
+        return React.DOM.div(null, React.DOM.textarea({
+          defaultValue: this.props.text,
+          style: {
+            color: 'green'
+          }
+        }), React.DOM.h3({
+          id: 'my-title',
+          style: {
+            color: 'red'
+          }
+        }, this.props.text.length))
+      }
+    });
+    // 挂载于DOM
+    ReactDOM.render(
+      React.createElement(TextAreaCounter, {
+        text: 'Cris'
+      }),
+      document.getElementById('app')
+    )
+  </script>
+</body>
+
+</html>
