@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="../react.js"></script>
+  <script src="../react-dom.js"></script>
+  <script>
+    var Component = React.createClass({
+      // 设置属性类型
+      propTypes: {
+        text: React.PropTypes.string.isRequired
+      },
+      // 设置默认值
+      getDefaultProps: function () {
+        return {
+          text: 'default'
+        }
+      },
+      // 动态监测
+      getInitialState: function () {
+        return {
+          text: this.props.text
+        }
+      },
+      _textChange: function (ev) {
+        this.setState({
+          text: ev.target.value
+        })
+      },
+      // 渲染的DOM
+      render: function () {
+        return React.DOM.div(null, React.DOM.textarea({
+            value: this.state.text,
+            onChange: this._textChange
+          }),
+          React.DOM.h3(null, this.state.text.length))
+      }
+    });
+    // 挂载到DOM
+    ReactDOM.render(
+      React.createElement(Component, {
+        text: 'Cris'
+      }),
+      document.getElementById('app')
+    )
+  </script>
+
+</body>
+
+</html>
