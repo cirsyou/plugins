@@ -13,48 +13,57 @@
   <script src="../react.js"></script>
   <script src="../react-dom.js"></script>
   <script>
+    // 生成一个组件
     var Component = React.createClass({
       // 设置属性类型
       propTypes: {
         text: React.PropTypes.string.isRequired
       },
-      // 设置默认值
+      // 设置默认数据
       getDefaultProps: function () {
         return {
           text: 'default'
         }
       },
-      // 动态监测
+      // 添加监听
       getInitialState: function () {
         return {
           text: this.props.text
         }
       },
+      // 事件监听
       _textChange: function (ev) {
         this.setState({
           text: ev.target.value
         })
       },
-      _textClick:function(ev){
-        alert(123)
-        console.log(ev.target.id)
+      _btnClick: function (ev) {
+        console.log(this.state.text)
       },
-      // 渲染的DOM
       render: function () {
-        return React.DOM.div(null, React.DOM.textarea({
+        return React.DOM.div(null, React.DOM.input({
             value: this.state.text,
             onChange: this._textChange
           }),
-          React.DOM.h3({
-            id: 'my-title',
-            onClick:this._textClick
-          }, this.state.text.length))
+          React.DOM.div({
+            style: {
+              color: 'red'
+            }
+          }, this.state.text.length),
+          React.DOM.button({
+            value: '点击',
+            style: {
+              width: '120px',
+              height: '44px',
+              fontSize: '16px'
+            },
+            onClick: this._btnClick
+          }, '点击'))
       }
     });
-    // 挂载到DOM
     ReactDOM.render(
       React.createElement(Component, {
-        text: 'Cris'
+        text: 'MyInput'
       }),
       document.getElementById('app')
     )
