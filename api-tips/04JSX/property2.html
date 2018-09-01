@@ -15,11 +15,14 @@
   <script src="../browser.min.js"></script>
   <script type="text/babel">
     var Component = React.createClass({
+      _spanClick:function(){
+        console.log('clicked')
+      },
       render: function(){
         var list = [
           <span key="hello">Hello</span>,
           '',
-          <span key="world">World</span>
+          <span key="world" onClick={this._spanClick}>World</span>
         ]
         return (
           <div>{list}</div>
