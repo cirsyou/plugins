@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js in jax</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="../react.js"></script>
+  <script src="../react-dom.js"></script>
+  <script src="../browser.min.js"></script>
+  <script type="text/babel">
+    var Component = React.createClass({
+      // 设置默认参数
+      getDefaultProps: function(){
+        return {
+          name: 'Cris'
+        }
+      },
+      render:function(){
+        return <div>{this.props.name}</div>
+      }
+    });
+    var Excel = React.createClass({
+      getDefaultProps: function(){
+        return {
+          list: ['Chinese','Math','PE','English']
+        }
+      },
+      render: function(){
+        return (
+          <ul>
+            {this.props.list.map(function(item,index){
+              return <li key={index}>{item}</li>
+            })}
+          </ul>
+        )
+      }
+    });
+    ReactDOM.render(
+      React.createElement(Excel),
+      document.getElementById('app')
+    )
+  </script>
+
+</body>
+
+</html>
