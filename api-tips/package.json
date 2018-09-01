@@ -1,0 +1,19 @@
+{
+  "name": "api-tips",
+  "version": "1.0.0",
+  "description": "",
+  "main": "browser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Path2017/react_files.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Path2017/react_files/issues"
+  },
+  "homepage": "https://github.com/Path2017/react_files#readme"
+}
