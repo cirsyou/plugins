@@ -18,9 +18,19 @@ class CommentBox extends Component {
       dataType: 'json',
       cache: false,
       success: comments => {
-        console.log(comments)
+        this.setState({
+          data:comments.body
+        })
       }
     })
+  };
+  // 父组件接收子组件传递数据的方法
+  handleCommentSubmit(comment){
+    console.log(comment)
+  };
+  // 将请求方法进行封装
+  getComment(){
+    // 利用 this.getComments()进行调用
   };
   // 返回需要显示的内容
   render(){
@@ -29,7 +39,7 @@ class CommentBox extends Component {
       <h1>评论</h1>
       <div className="ui divider"></div>
       <CommentList data={this.state.data}/>
-      <CommentForm />
+      <CommentForm onCommentSubmit={this.handleCommentSubmit}/>
     </div>
     );
   }

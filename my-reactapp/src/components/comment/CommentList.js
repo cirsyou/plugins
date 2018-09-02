@@ -9,7 +9,7 @@ class CommentList extends Component {
     console.log(datalist);
     let commentNodes = datalist.map((comment,index) =>{
       return (
-        <Comment key={index} author={comment.author} date={comment.date}>{comment.text}</Comment>
+        <Comment key={index} author={comment.projectName} date={comment.endTime}>{comment.remark}</Comment>
       );
     })
     return (
