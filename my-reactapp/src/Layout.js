@@ -7,7 +7,7 @@ class Layout extends Component {
   render() {
     return (
       <div className="ui container">
-        <CommentBox url="comment.json"></CommentBox>
+        <CommentBox url="src/comment.json"></CommentBox>
         <button className="ui green button">Hello</button>
         Hello React
       </div>

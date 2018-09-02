@@ -13,7 +13,8 @@ class CommentBox extends Component {
       data:[],
     };
     $.ajax({
-      url: this.props.url,
+      url: 'http://web.dev.rcitech.cn/web/due/diligenceScore/api/all',
+      type:'post',
       dataType: 'json',
       cache: false,
       success: comments => {
