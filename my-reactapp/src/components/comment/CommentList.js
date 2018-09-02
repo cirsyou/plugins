@@ -1,17 +1,20 @@
-'use strict';
-
 import React, { Component } from 'react';
 // 导入Comment
 import Comment from './Comment';
 
 // 定义组件
 class CommentList extends Component {
-
   render() {
+    let datalist = this.props.data;
+    console.log(datalist);
+    let commentNodes = datalist.map((comment,index) =>{
+      return (
+        <Comment key={index} author={comment.author} date={comment.date}>{comment.text}</Comment>
+      );
+    })
     return (
       <div>
-        <Comment author="Cris" date="17:20 2018/09/02">Cris的评论内容</Comment>
-        <Comment author="Bob" date="16:13 2018/09/02">Bob的评论内容</Comment>
+        {commentNodes}
       </div>
     )
   }
