@@ -18,6 +18,7 @@ class Layout extends Component {
         <CommentBox url="src/comment.json"></CommentBox>
         <button className="ui green button">Hello</button>
         Hello React
+        <div>测试Router</div>
       </div>
     );
   }
