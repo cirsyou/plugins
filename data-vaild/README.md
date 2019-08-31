@@ -17,3 +17,12 @@
 另外需支持可扩展规则
 
 ```
+
+## 开发标准
+```javascript
+(function (global, factory, plug) {
+  return factory.call(global, global.jQuery, plug);
+})(this, function ($, plug) {
+
+}, "dataValidator")
+```

@@ -25,14 +25,12 @@
 </head>
 
 <body>
-  <form class="form-horizontal form-login">
+  <form id="dataBox" class="form-horizontal form-login" data-cv-raise="keyup">
     <div class="form-group">
       <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="inputEmail3" placeholder="Email" 
-        data-cv="true"
-        data-cv-require="true" 
-        data-cv-email="true">
+        <input type="email" class="form-control" id="inputEmail3" placeholder="Email" data-cv="true"
+          data-cv-require="true" data-cv-require-error="邮箱地址为必填项" data-cv-email="true" data-cv-email-error="邮箱地址不合法">
       </div>
     </div>
     <div class="form-group">
@@ -49,7 +47,11 @@
   </form>
   <script src="./libs/cris-validator.js"></script>
   <script>
-
+    $(function () {
+      $('#dataBox').dataValidator({
+        raise: "change"
+      })
+    })
   </script>
 </body>
 
